@@ -9,7 +9,7 @@ function Player(username){
 function Balloon(){
     this.altitude = 20;
     this.goldbars = 5;
-    this.barArr = [""];
+    this.barArr = ["<img src='https://cdn1.iconfinder.com/data/icons/business-colored-icons-vol-1/128/019-512.png'/>"];
     this.fuel = 100;
     this.lift=0;
     this.weight = 0;
@@ -54,7 +54,7 @@ function update(p){
     if(a.barArr.length < a.goldbars){
         a.barArr.push("<img src='https://cdn1.iconfinder.com/data/icons/business-colored-icons-vol-1/128/019-512.png'/>")
     }
-    if(a.barArr.length -2 > a.goldbars){
+    if(a.barArr.length > a.goldbars){
         a.barArr.pop();
     }
     a.lift+= 0.05
