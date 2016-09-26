@@ -1,11 +1,42 @@
 <html>
-<head>
-	<title>Slap Object Game</title>
-	<link rel="stylesheet" href="">
-	<link rel="stylesheet" href="">
-	<script src=""></script>
-</head>
-<body>
-	
-</body>
+	<head>
+		<title>Slap Object Game</title>
+		<link rel="stylesheet" href="">
+		<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+		<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+		<link rel="stylesheet" href="bundle.css">
+		<script   src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
+		<script src="game.js"></script>
+		
+	</head>
+	<body>
+		<div class="game-over" style="display:none;">
+			<h1>GAME OVER</h1>
+			<h2>SCORE: <span id="score"></span></h2>
+			<h2 id="highscores"></h2>
+		</div>
+		<div class="container-fixed" style="display:block;">
+			<div class="container">
+				<h1 id="hits"></h1>
+				<h1 id="name"></h1>
+				</div>
+				<div class="dead-center">
+					<div class="sprite">
+						<img id="balloon" src="http://clipartsign.com/upload/2016/02/12/striped-pastel-colored-hot-air-balloon-free-clip-art.png" alt="">
+					</div>
+				</div>
+				<div class="info-center">
+					<div class="info">
+						<h3>Bags: <span id="bags"></span></h3>
+					</div>
+				</div>
+				<div class="health-bar indicator-bar-container">
+					<div class="indicator-bar" id="health"></div>
+					FUEL
+					<span id="healthval"></span>
+			</div>
+		</div>
+		<div class="water"></div>
+		<p class="loser text-center" id="loser" style="display:none;">YER A LOSER 'ARRY!</p>
+	</body>
 </html>
