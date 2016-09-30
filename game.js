@@ -1,5 +1,8 @@
 $(document).ready(function(){
-var gravity = 1.2;
+
+var gravity = 2;
+var goldBarImg = "https://cdn1.iconfinder.com/data/icons/business-colored-icons-vol-1/128/019-512.png"
+goldBarImg = "http://s3.medel.com/images/VIBRANT/goldbarren.png"
 function Player(username){
     this.name = username;
     this.score = 0;
@@ -9,7 +12,7 @@ function Player(username){
 function Balloon(){
     this.altitude = 20;
     this.goldbars = 5;
-    this.barArr = ["<img src='https://cdn1.iconfinder.com/data/icons/business-colored-icons-vol-1/128/019-512.png'/>"];
+    this.barArr = ["<img src='" + goldBarImg + "'/>"];
     this.fuel = 100;
     this.lift=0;
     this.weight = 0;
@@ -52,13 +55,13 @@ function gameover(player){
 function update(p){
     var a = p.balloon;
     if(a.barArr.length < a.goldbars){
-        a.barArr.push("<img src='https://cdn1.iconfinder.com/data/icons/business-colored-icons-vol-1/128/019-512.png'/>")
+        a.barArr.push("<img src='" + goldBarImg + "'/>")
     }
     if(a.barArr.length > a.goldbars){
         a.barArr.pop();
     }
-    a.lift+= 0.05
-    a.weight = (a.goldbars/5);
+    a.lift+= 0.02
+    a.weight = (a.goldbars)/10;
     a.altitude += gravity*(a.weight) + a.lift;
     a.altitude = (a.altitude < 0)? Math.abs(a.altitude): a.altitude;
 
@@ -74,13 +77,12 @@ function update(p){
         //look at cancel interval
         clearInterval(timer)
     }
-   
+
 }
 
 var player = new Player("McCall");
 var balloon = player.balloon;
 function keyFunct(){
-
  $(window).keydown(function(event){
         var key = event.keyCode;
         // $('#bags').html(event.keyCode)
@@ -89,11 +91,18 @@ function keyFunct(){
         }else if(key == 40){
             removeBag(player);
         }
-    });
+    })
 }
 var timer = setInterval(function(){update(player)}, 100);
-debugger
 keyFunct();
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    $('.btn-up').show();
+    $('.btn-drop').show();
 
-
-})
+    $('body').click(function(){
+    burnfuel(balloon)
+    });
+    $('.btn-drop').click(function(){
+        removeBag(player)
+    })
+}});
