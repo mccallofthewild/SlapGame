@@ -110,7 +110,9 @@ body {
   background-color: #C7F5FF;
   color: white;
   background-image: url(https://web.ist.utl.pt/~ist172700/ccu/save/assets/sky10.jpg);
-  font-family: 'Fredoka One', cursive; }
+  background-size: cover;
+  font-family: 'Fredoka One', cursive; 
+}
 
 .btn-container {
   margin-top: 1%;
